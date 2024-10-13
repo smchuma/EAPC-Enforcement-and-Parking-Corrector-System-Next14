@@ -102,8 +102,18 @@ body {
   display: block;
 }
 
+.ham-reverse {
+  display: none;
+}
+
 @media (min-width: 1024px) {
   .ham {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ham-reverse {
+    display: block;
   }
 }

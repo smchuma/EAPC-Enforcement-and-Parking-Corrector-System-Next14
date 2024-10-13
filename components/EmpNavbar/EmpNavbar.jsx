@@ -14,6 +14,7 @@ import {
 } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SidebarDrawer from "../SidebarDrawer/SidebarDrawer";
 
 const Navbar = () => {
   const path = usePathname();
@@ -24,13 +25,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="flex items-center justify-between px-5 bg-gray-50 rounded-lg py-5 fixed w-[80%] mt-2 top-0 shadow-lg z-[99] ">
+    <nav className="flex items-center justify-between px-5 bg-gray-50 rounded-lg py-5 fixed w-full md:w-[80%] mt-0 md:mt-2 top-0 shadow-lg z-[99] ">
       <div className="flex items-center">
-        <div className="flex gap-x-2">
-          <GiHamburgerMenu size={24} className="ham" />
+        <div className="flex gap-x-2 items-center">
+          <SidebarDrawer />
+
           <span className="text-xl font-bold text-gray-800">EAPC</span>
         </div>
-        <div className="ml-10 flex gap-x-2">
+        <div className="ml-10 flex gap-x-2 ham-reverse">
           {navLinks.map((link) => (
             <Link
               key={link.name}
