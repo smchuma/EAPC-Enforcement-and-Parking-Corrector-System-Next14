@@ -21,11 +21,11 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Target", path: "/" },
-    { name: "Tuma Ripoti", path: "/tuma-ripoti" },
+    { name: "Ripoti", path: "/tuma-ripoti" },
   ];
 
   return (
-    <nav className="flex items-center justify-between px-5 bg-gray-50 rounded-lg py-5 fixed w-full md:w-[80%] mt-0 md:mt-2 top-0 shadow-lg z-[99] ">
+    <nav className="flex items-center justify-between px-5 bg-gray-50 rounded-lg py-5 fixed w-full md:w-[80%] top-0 shadow-lg z-[50] ">
       <div className="flex items-center">
         <div className="flex gap-x-2 items-center">
           <SidebarDrawer />
