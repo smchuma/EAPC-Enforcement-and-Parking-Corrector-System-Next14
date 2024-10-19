@@ -23,7 +23,7 @@ export const login = async (values) => {
     });
 
     if (result && !result.error) {
-      redirect(DEFAULT_LOGIN_REDIRECT || "/");
+      return { success: "Login successful" };
     } else {
       return { error: result.error || "Something went wrong" };
     }
