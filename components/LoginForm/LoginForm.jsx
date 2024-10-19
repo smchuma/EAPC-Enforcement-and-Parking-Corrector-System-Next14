@@ -8,13 +8,11 @@ import { FormSuccess } from "../FormSuccess/FormSuccess";
 import { FormError } from "../FormError/FormError";
 import { Button } from "../ui/button";
 import { login } from "@/actions/login";
-import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState();
   const [success, setSuccess] = useState();
-  const router = useRouter();
 
   const {
     register,
@@ -29,7 +27,6 @@ const LoginForm = () => {
           setError(data.error || null);
 
           if (data.success) {
-            router.push("/");
             setSuccess(data.success || null);
           }
         } else {

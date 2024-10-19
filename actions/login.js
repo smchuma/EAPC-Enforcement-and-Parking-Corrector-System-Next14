@@ -19,7 +19,7 @@ export const login = async (values) => {
     const result = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      redirect: DEFAULT_LOGIN_REDIRECT,
     });
 
     if (result && !result.error) {
