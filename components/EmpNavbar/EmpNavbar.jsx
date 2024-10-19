@@ -1,29 +1,10 @@
-"use client";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaRegUser } from "react-icons/fa";
-import { Avatar, AvatarImage } from "../ui/avatar";
-import { AvatarFallback } from "@radix-ui/react-avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 import SidebarDrawer from "../SidebarDrawer/SidebarDrawer";
+import ProfileAvatar from "../ProfileAvatar/ProfileAvatar";
+import NavLinks from "../NavLinks/NavLinks";
 
-const Navbar = () => {
-  const path = usePathname();
-
-  const navLinks = [
-    { name: "Target", path: "/" },
-    { name: "Ripoti", path: "/tuma-ripoti" },
-  ];
-
+const EmpNavbar = () => {
   return (
     <nav className="flex items-center justify-between px-5 bg-gray-50 rounded-lg py-5 fixed w-full md:w-[80%] top-0 shadow-lg z-[50] ">
       <div className="flex items-center">
@@ -32,51 +13,16 @@ const Navbar = () => {
 
           <span className="text-xl font-bold text-gray-800">EAPC</span>
         </div>
-        <div className="ml-10 flex gap-x-2 ham-reverse">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                path === link.path
-                  ? "text-blue-600 border-b-2 border-blue-600"
-                  : "text-gray-700 hover:text-blue-500"
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+        <NavLinks />
       </div>
       <div className="flex justify-between items-center cursor-pointer">
         <div className="bg-white shadow-md mr-2 p-2 rounded-full">
           <IoMdNotificationsOutline size={24} />
         </div>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <div className="flex gap-x-2 items-center">
-                <FaRegUser />
-
-                <p>Profile</p>
-              </div>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem>Logout</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <ProfileAvatar />
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default EmpNavbar;
